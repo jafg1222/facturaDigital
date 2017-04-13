@@ -1,13 +1,5 @@
 <?php
-	include_once('clsConexionOracle.php');
-
-	$conn = new oracleConexion("hacienda","345","10.40.63.143");
-
-	if($conn = true){
-		echo "Si";
-	}else{
-		echo "No";
-	}
+	include_once('clsConexionOracle.php');			
 
 	header("Content-Type:application/json");
 	header("Accept:application/json");

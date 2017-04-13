@@ -17,7 +17,7 @@
     private $sentencia;
     public $error;
 
-    function __construct($host = "", $user = "", $password = "", $e = "",$sqlQuery = "",$error = "")
+    function __construct($user = "", $password = "", $host = "", $e = "",$sqlQuery = "",$error = "")
     {
             $this->host = $host;
             $this->user = $user;
@@ -95,16 +95,23 @@
            return $this->error;
        }
 
-       public function conectar(){
-        $this->conex = oci_connect($this->user, $this->psswd, $this->host);
-        if (!$this->conex) {
-            $this->e = oci_error();
-            trigger_error(htmlentities($this->e['message'], ENT_QUOTES), E_USER_ERROR);
-            return false;
-          }else {
+       public function conectar(){        
+        $this->conex = oci_connect($this->user, $this->psswd, $this->host);       
+        return $this->conex;                  
+      }
+
+      public function execCrud($conex,$sqlStmn){
+        $stid = oci_parse($conex,$sqlStmn);
+        $resultado =  oci_execute($stid);
+        if(true === $resultado){          
             return true;
-          }
-       }
+        } else {            
+            $e = oci_error($stid);
+            return "Error: " . $e['message'];
+        }        
+      }        
+        
+       
 
 
   }

@@ -109,6 +109,18 @@
             $e = oci_error($stid);
             return "Error: " . $e['message'];
         }        
+      }
+
+      public function execSelect($conex,$sqlStmn){
+          if (!$conex) {
+              $e = oci_error();
+              return "Error: " . $e['message'];
+        }
+              $stid = oci_parse($conex,$sqlStmn);
+              oci_execute($stid);              
+              return $stid;                            
+              
+              
       }        
         
        

@@ -100,7 +100,8 @@ app.controller("employessController", ['$window','$scope', '$timeout','apiResour
       telefono:"",
       correo: "yo@ejemplo.com",
       fechaInicio:null,
-      fechaFin:null
+      fechaFin:null,
+      pass:"";
     };
 
     $scope.registrar = function(){

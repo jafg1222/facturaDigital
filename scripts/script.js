@@ -101,7 +101,7 @@ app.controller("employessController", ['$window','$scope', '$timeout','apiResour
       correo: "yo@ejemplo.com",
       fechaInicio:null,
       fechaFin:null,
-      pass:"";
+      pass:""
     };
 
     $scope.registrar = function(){
@@ -113,10 +113,10 @@ app.controller("employessController", ['$window','$scope', '$timeout','apiResour
         apiResource.insert($scope.datosEmpleado).then(function(msj){
           showModal.close();
           $scope.msj = msj;
-          $window.location.href = 'test.php';
+          //$window.location.href = 'test.php';
         }, function(msj){
           showModal.close();
-          $window.location.href = 'test.php';
+          //$window.location.href = 'test.php';
           $scope.msj = msj;
         });
       },1500);

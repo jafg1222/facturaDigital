@@ -2,8 +2,8 @@
 	
 	$numeroRegistro = $_GET['registro'];
 	$registro =  base64_decode($numeroRegistro);
-    $filename = $registro."public.key";
-    $homedir = "/opt/lampp/htdocs/facturaDigital/llaves/".$filename;        
+    $filename = "formato.xsd";
+    $homedir = "/opt/lampp/htdocs/facturaDigital/xsd/formato.xsd";        
     if (!$homedir) {
     	die('File Not Found');
     }else{

@@ -1,0 +1,63 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="factura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="encabe">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="empresa">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="idEmpre"/>
+                    <xs:element type="xs:string" name="nomEm"/>
+                    <xs:element type="xs:string" name="direccionEm"/>
+                    <xs:element type="xs:string" name="emailEm"/>
+                    <xs:element type="xs:int" name="telEm"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="cliente">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="idClien"/>
+                    <xs:element type="xs:string" name="nomClie"/>
+                    <xs:element type="xs:string" name="apeClie"/>
+                    <xs:element type="xs:string" name="direccionClie"/>
+                    <xs:element type="xs:string" name="emailClie"/>
+                    <xs:element type="xs:int" name="telClie"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="factu">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:short" name="numeroFactu"/>
+                    <xs:element type="xs:string" name="fechaHoraFactu"/>
+                    <xs:element type="xs:string" name="formaPago"/>
+                    <xs:element type="xs:string" name="moneda"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="detalle">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="articulo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:short" name="idAr"/>
+                    <xs:element type="xs:string" name="nomAr"/>
+                    <xs:element type="xs:int" name="precioAr"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:int" name="total"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

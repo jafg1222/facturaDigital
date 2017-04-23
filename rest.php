@@ -19,6 +19,9 @@
 				if ($request[0] == 'sign'){
 					include_once("servicios/sign.php");
 				}
+				if ($request[0] == 'xmlValidate'){
+					include_once("servicios/xmlValidation.php");
+				}
 			}
 			break;
 	}

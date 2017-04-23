@@ -45,8 +45,14 @@
 	        <div class="form-group ">
 	        <?php echo "<p class='lead'>Bienvenido al sistema de factura digital,de click sobre el boton de Generar llave para generar su llave publica, su numero de registro es el siguiente: ".base64_decode($_GET["registro"])."
 	        <br>Por favor guarde en un lugar seguro los datos proporcionados por el Ministerio de Hacienda</p>"?>
-	        	<button  class="btn btn-primary btn-lg btn-block login-button" id="btn" name="btn">Generar Llave</button>
-	        	<input class="btn btn-primary btn-lg btn-block login-button" id="inp" type="button" value="Iniciar Sesión" onclick="location.href='index.html';" />	        
+	        	<button  class="btn btn-primary btn-lg btn-block login-button" id="btn" name="btn">Generar Llave</button>	        
+	        </div> 				
+			</form>
+			<form class="form-horizontal" action="../genXsd.php" method="post" enctype="multipart/form-data" id="MyUploadForm">
+	        <div class="form-group ">	        
+	        	<button  class="btn btn-primary btn-lg btn-block login-button" id="btn" name="btn">Generar Formato XSD</button> 
+	        	<input class="btn btn-primary btn-lg btn-block login-button" id="inp" type="button" value="Iniciar Sesión" 
+	        	onclick="location.href='index.html';" />	        	
 	        </div> 				
 			</form>
 

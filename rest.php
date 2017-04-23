@@ -16,6 +16,9 @@
 				if ($request[0] == 'regis'){
 					include_once("servicios/regis.php");
 				}
+				if ($request[0] == 'sign'){
+					include_once("servicios/sign.php");
+				}
 			}
 			break;
 	}

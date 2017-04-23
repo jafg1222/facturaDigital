@@ -23,6 +23,26 @@ function ApiResource($http,baseUrl,$q){
 
         return promise;
 	}
+  this.login = function(data){
+    var defered = $q.defer();
+     var promise = defered.promise;
+
+     $http({
+         method: 'POST',
+         url: baseUrl+'/sign',
+         data : data
+      }).success(function(data, status, headers, config) {
+      defered.resolve(data);
+        }).error(function(data, status, headers, config) {
+            if (status === 400) {
+                defered.reject(data);
+            } else {
+                throw new Error("Fallo obtener los datos:" + status + "\n" + data);
+            }
+        });
+
+        return promise;
+  }
 }
 
 function apiResourceProvider(){
@@ -53,6 +73,18 @@ function modalResource($modal,size){
 
     return modalInstance;
   }
+
+  this.modalAviso = function(){
+    var modalInstance =  $modal.open({
+      templateUrl: 'templates/templateLogin.html',
+      size: size
+      //backdrop: 'static',
+      //keyboard: false
+    });
+
+    return modalInstance;
+  }
+
 }
 
 function modalResourceProvider(){
@@ -113,13 +145,42 @@ app.controller("employessController", ['$window','$scope', '$timeout','apiResour
         apiResource.insert($scope.datosEmpleado).then(function(msj){
           showModal.close();
           $scope.msj = msj;
-          //$window.location.href = 'test.php';
+          $window.location.href = '../portal/genKeyPage.php?registro='+$scope.msj.data.numeroRegistro;          
         }, function(msj){
-          showModal.close();
-          //$window.location.href = 'test.php';
+          showModal.close();                    
           $scope.msj = msj;
         });
       },1500);
+      
+    };
+
+    $scope.datosLogin = {
+      numeroRegistro: "",
+      pass : ""
+    };
+
+    $scope.login = function(){
+    var showModal = modalResource.modalLoad();    
+    $scope.tam = {
+      width : '100%',
+    }
+     $timeout(function(){
+        apiResource.login($scope.datosLogin).then(function(msj){
+          showModal.close();
+          $window.location.href = '../portal/showFacturas.html';          
+          $scope.msj = msj;
+        }, function(msj){
+          showModal.close();
+          var showModal2 = modalResource.modalAviso();
+            $scope.tam = {
+            width : '100%',
+          }           
+          $scope.msj = msj;
+        });
+     },1500); 
+
+      
+    
     }
 
   }

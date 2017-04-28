@@ -167,7 +167,7 @@ app.controller("employessController", ['$window','$scope', '$timeout','apiResour
      $timeout(function(){
         apiResource.login($scope.datosLogin).then(function(msj){
           showModal.close();
-          $window.location.href = '../portal/showFacturas.html';          
+          $window.location.href = '../portal/showFacturas.php?registo='+$scope.datosLogin.numeroRegistro;          
           $scope.msj = msj;
         }, function(msj){
           showModal.close();

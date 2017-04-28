@@ -52,7 +52,7 @@
 	        <div class="form-group ">	        
 	        	<button  class="btn btn-primary btn-lg btn-block login-button" id="btn" name="btn">Generar Formato XSD</button> 
 	        	<input class="btn btn-primary btn-lg btn-block login-button" id="inp" type="button" value="Iniciar Sesión" 
-	        	onclick="location.href='index.html';" />	        	
+	        	onclick="location.href='login.html';" />	        	
 	        </div> 				
 			</form>
 

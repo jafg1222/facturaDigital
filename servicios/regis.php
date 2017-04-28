@@ -6,7 +6,7 @@
 		$data = file_get_contents("php://input");
 		$valores = json_decode($data,TRUE);
 
-		$conexion = new oracleConexion("mhacienda","12345","192.168.0.8/XE");
+		$conexion = new oracleConexion("mhacienda","12345","192.168.43.203/XE");
 
 		$conex = $conexion->conectar();
 
